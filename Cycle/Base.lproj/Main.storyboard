@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZbD-gn-LDG">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="N1O-mV-QkO">
+            <objects>
+                <navigationController id="ZbD-gn-LDG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QgV-bN-mXy">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9fA-sH-Wuf" kind="relationship" relationship="rootViewController" id="5Tm-h5-XAV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fIJ-9a-Lav" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-246" y="19"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="lKl-Tz-uGi">
+            <objects>
+                <viewController id="9fA-sH-Wuf" customClass="ViewController" customModule="Cycle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RGf-hd-wOG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2M-4o-7H8">
+                                <rect key="frame" x="119" y="201" width="138" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="跳转到内存泄漏页面"/>
+                                <connections>
+                                    <segue destination="Ddc-kf-6m9" kind="push" id="GEW-VT-Gyy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="dhP-vo-3Gu"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rUr-oh-Mrs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SwC-2b-RUF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="680.79999999999995" y="-6.746626686656672"/>
+        </scene>
+        <!--模拟循环引用内存泄漏-->
+        <scene sceneID="Lea-Mk-ozr">
+            <objects>
+                <viewController id="Ddc-kf-6m9" customClass="LeakController" customModule="Cycle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mwW-P0-HBq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="eMH-ek-Pg2" customClass="LeakImageView" customModule="Cycle" customModuleProvider="target">
+                                <rect key="frame" x="57" y="137" width="260" height="153"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="VIY-qJ-WSq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="模拟循环引用内存泄漏" id="onR-v1-xab"/>
+                    <connections>
+                        <outlet property="leakImageView" destination="eMH-ek-Pg2" id="Tao-dW-SIH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bsE-g6-LPY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1485.5999999999999" y="-13.043478260869566"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="image" width="1920" height="1080"/>
+    </resources>
+</document>
